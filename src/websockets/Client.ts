@@ -1,10 +1,12 @@
 import WebSocket from "ws";
 
-const ws = new WebSocket("http://localhost:3000");
+const ws = new WebSocket("http://localhost:3016");
 
 ws.on("open", () => {
   console.log("Connection established");
-  ws.send("Hello server !");
+  setInterval(() => {
+    ws.send("Hello server !");
+  }, 10000);
 });
 
 ws.on("message", (data) => {
